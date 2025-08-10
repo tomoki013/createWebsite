@@ -19,9 +19,6 @@ const config = {
       },
     },
     extend: {
-      fontFamily: {
-        sans: ['var(--font-noto-sans-jp)', ...fontFamily.sans],
-      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
