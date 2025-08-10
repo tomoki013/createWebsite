@@ -1,34 +1,83 @@
-import { createServerSupabaseClient } from '@/lib/supabase/server';
 import Link from 'next/link';
-import { LogoutButton } from '@/components/auth/logout-button';
+import { Github, Twitter, Facebook } from 'lucide-react';
 
-export async function Footer() {
-  const supabase = await createServerSupabaseClient();
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
-
+export function Footer() {
   return (
-    <footer className="border-t">
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-        <p className="text-muted-foreground text-sm">
-          &copy; {new Date().getFullYear()} SiteCraft. All rights reserved.
-        </p>
-        <nav className="text-muted-foreground flex gap-4 text-sm">
-          {session ? (
-            <>
-              <Link href="/dashboard">ダッシュボード</Link>
-              <LogoutButton />
-            </>
-          ) : (
-            <>
-              <Link href="/login">ログイン</Link>
-              <Link href="/register">新規登録</Link>
-            </>
-          )}
-          <Link href="/terms">利用規約</Link>
-          <Link href="/privacy">プライバシーポリシー</Link>
-        </nav>
+    <footer className="bg-gray-50 dark:bg-gray-900 border-t">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          {/* Site Info */}
+          <div>
+            <h2 className="text-lg font-bold">SiteCraft</h2>
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+              あなたのウェブサイトを次のレベルへ。
+            </p>
+          </div>
+
+          {/* Links */}
+          <div className="grid grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-semibold">プロダクト</h3>
+              <nav className="mt-4 flex flex-col space-y-2 text-sm">
+                <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                  機能
+                </Link>
+                <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                  料金
+                </Link>
+                <Link href="/dashboard" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                  ダッシュボード
+                </Link>
+              </nav>
+            </div>
+            <div>
+              <h3 className="font-semibold">リソース</h3>
+              <nav className="mt-4 flex flex-col space-y-2 text-sm">
+                <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                  ブログ
+                </Link>
+                <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                  お問い合わせ
+                </Link>
+                <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                  ドキュメント
+                </Link>
+              </nav>
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div>
+            <h3 className="font-semibold">フォローする</h3>
+            <div className="mt-4 flex space-x-4">
+              <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <Github className="h-6 w-6" />
+              </Link>
+              <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <Twitter className="h-6 w-6" />
+              </Link>
+              <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <Facebook className="h-6 w-6" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <hr className="my-8 border-gray-200 dark:border-gray-700" />
+
+        <div className="flex flex-col items-center justify-between sm:flex-row">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            &copy; {new Date().getFullYear()} SiteCraft. All rights reserved.
+          </p>
+          <nav className="mt-4 flex space-x-4 text-sm sm:mt-0">
+            <Link href="/terms" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+              利用規約
+            </Link>
+            <Link href="/privacy" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+              プライバシーポリシー
+            </Link>
+          </nav>
+        </div>
       </div>
     </footer>
   );
