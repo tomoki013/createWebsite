@@ -1,14 +1,18 @@
 import Link from 'next/link';
-import { Github, Twitter, Facebook } from 'lucide-react';
+import { MountainIcon } from 'lucide-react';
+import { FaGithub, FaInstagram, FaTiktok } from 'react-icons/fa';
 
 export function Footer() {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 border-t">
+    <footer className="border-t bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Site Info */}
           <div>
-            <h2 className="text-lg font-bold">SiteCraft</h2>
+            <Link href={`/`} className="flex items-center space-x-2">
+              <MountainIcon />
+              <span className="text-xl font-bold">SiteCraft</span>
+            </Link>
             <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
               あなたのウェブサイトを次のレベルへ。
             </p>
@@ -19,19 +23,28 @@ export function Footer() {
             <div>
               <h3 className="font-semibold">プロダクト</h3>
               <nav className="mt-4 flex flex-col space-y-2 text-sm">
-                <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <Link
+                  href="#"
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
                   機能
                 </Link>
-                <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <Link
+                  href="#"
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
                   料金
                 </Link>
-                <Link href="/dashboard" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <Link
+                  href="/dashboard"
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
                   ダッシュボード
                 </Link>
               </nav>
             </div>
             <div>
-              <h3 className="font-semibold">リソース</h3>
+              {/* <h3 className="font-semibold">リソース</h3>
               <nav className="mt-4 flex flex-col space-y-2 text-sm">
                 <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
                   ブログ
@@ -42,7 +55,7 @@ export function Footer() {
                 <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
                   ドキュメント
                 </Link>
-              </nav>
+              </nav> */}
             </div>
           </div>
 
@@ -50,15 +63,24 @@ export function Footer() {
           <div>
             <h3 className="font-semibold">フォローする</h3>
             <div className="mt-4 flex space-x-4">
-              <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                <Github className="h-6 w-6" />
+              <Link
+                href="https://github.com/tomoki013/createWebsite"
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              >
+                <FaGithub className="h-6 w-6" />
               </Link>
-              <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                <Twitter className="h-6 w-6" />
+              {/* <Link
+                href="#"
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              >
+                <FaInstagram className="h-6 w-6" />
               </Link>
-              <Link href="#" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
-                <Facebook className="h-6 w-6" />
-              </Link>
+              <Link
+                href="#"
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              >
+                <FaTiktok className="h-6 w-6" />
+              </Link> */}
             </div>
           </div>
         </div>
@@ -70,10 +92,16 @@ export function Footer() {
             &copy; {new Date().getFullYear()} SiteCraft. All rights reserved.
           </p>
           <nav className="mt-4 flex space-x-4 text-sm sm:mt-0">
-            <Link href="/terms" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+            <Link
+              href="/terms"
+              className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            >
               利用規約
             </Link>
-            <Link href="/privacy" className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+            <Link
+              href="/privacy"
+              className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            >
               プライバシーポリシー
             </Link>
           </nav>
